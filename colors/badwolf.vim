@@ -56,6 +56,9 @@ endif " }}}
 
 let s:bwc = {}
 
+" Patched version (TheBB)
+let s:bwc.bbwhite = ['ffffff', 231]
+
 " The most basic of all our colors is a slightly tweaked version of the Molokai
 " Normal text.
 let s:bwc.plain = ['f8f6f2', 15]
@@ -177,7 +180,7 @@ endif
 
 " General/UI {{{
 
-call s:HL('Normal', 'plain', 'blackgravel')
+call s:HL('Normal', 'bbwhite', 'blackgravel')
 
 call s:HL('Folded', 'mediumgravel', 'bg', 'none')
 
@@ -241,7 +244,7 @@ call s:HL('iCursor', 'coal', 'tardis', 'none')
 " Syntax highlighting {{{
 
 " Start with a simple base.
-call s:HL('Special', 'plain')
+call s:HL('Special', 'plain', '', 'none')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
 call s:HL('Comment',        'gravel')
