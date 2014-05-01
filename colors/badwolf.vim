@@ -247,12 +247,19 @@ call s:HL('iCursor', 'coal', 'tardis', 'none')
 call s:HL('Special', 'plain')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
-if $TERM == "xterm-it"
-    " call s:HL('Comment',        'gravel', 'bg', 'italic')
-    call s:HL('Comment', 'gravel')
-else
-    call s:HL('Comment',        'gravel')
-end
+call s:HL('Comment', 'gravel', 'bg', 'italic')
+let g:badwolf_italics = 1
+function! Badwolf_toggle_italics()
+    if g:badwolf_italics == 1
+        call s:HL('Comment', 'gravel', 'bg', 'none')
+        let g:badwolf_italics = 0
+    else
+        call s:HL('Comment', 'gravel', 'bg', 'italic')
+        let g:badwolf_italics = 0
+    end
+endfunction
+command! BWToggleItalics :call Badwolf_toggle_italics()
+
 call s:HL('Todo',           'snow', 'bg', 'bold')
 call s:HL('SpecialComment', 'snow', 'bg', 'bold')
 
