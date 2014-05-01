@@ -175,6 +175,20 @@ endif
 
 " }}}
 
+let g:badwolf_italics = 1
+function! Badwolf_toggle_italics()
+    if g:badwolf_italics == 1
+        call s:HL('Comment', 'gravel', '', 'none')
+        call s:HL('markdownItalic', 'snow', '', 'none')
+        let g:badwolf_italics = 0
+    else
+        call s:HL('Comment', 'gravel', '', 'italic')
+        call s:HL('markdownItalic', 'snow', '', 'italic')
+        let g:badwolf_italics = 0
+    end
+endfunction
+command! BWToggleItalics :call Badwolf_toggle_italics()
+
 " Actual colorscheme ----------------------------------------------------------
 " Vanilla Vim {{{
 
@@ -247,19 +261,7 @@ call s:HL('iCursor', 'coal', 'tardis', 'none')
 call s:HL('Special', 'plain')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
-call s:HL('Comment', 'gravel', 'bg', 'italic')
-let g:badwolf_italics = 1
-function! Badwolf_toggle_italics()
-    if g:badwolf_italics == 1
-        call s:HL('Comment', 'gravel', 'bg', 'none')
-        let g:badwolf_italics = 0
-    else
-        call s:HL('Comment', 'gravel', 'bg', 'italic')
-        let g:badwolf_italics = 0
-    end
-endfunction
-command! BWToggleItalics :call Badwolf_toggle_italics()
-
+call s:HL('Comment', 'gravel', '', 'italic')
 call s:HL('Todo',           'snow', 'bg', 'bold')
 call s:HL('SpecialComment', 'snow', 'bg', 'bold')
 
@@ -595,7 +597,7 @@ call s:HL('markdownHeadingRule', 'lightgravel', '', 'bold')
 call s:HL('markdownHeadingDelimiter', 'lightgravel', '', 'bold')
 call s:HL('markdownOrderedListMarker', 'lightgravel', '', 'bold')
 call s:HL('markdownListMarker', 'lightgravel', '', 'bold')
-call s:HL('markdownItalic', 'snow', '', 'bold')
+call s:HL('markdownItalic', 'snow', '', 'italic')
 call s:HL('markdownBold', 'snow', '', 'bold')
 call s:HL('markdownH1', 'orange', '', 'bold')
 call s:HL('markdownH2', 'lime', '', 'bold')
