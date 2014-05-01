@@ -248,7 +248,8 @@ call s:HL('Special', 'plain')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
 if $TERM == "xterm-it"
-    call s:HL('Comment',        'gravel', 'bg', 'italic')
+    " call s:HL('Comment',        'gravel', 'bg', 'italic')
+    call s:HL('Comment', 'gravel')
 else
     call s:HL('Comment',        'gravel')
 end
